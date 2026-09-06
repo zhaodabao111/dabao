@@ -15,6 +15,13 @@ class Settings(BaseSettings):
     backend_port: int = 8003
     frontend_origin: str = "http://localhost:5175"
     public_base_url: str = "http://localhost:8003"
+    recording_storage_dir: Path = BACKEND_DIR / "storage" / "recordings"
+    recording_ttl_hours: int = 24
+    audio_min_duration_seconds: float = 1
+    audio_max_duration_seconds: float = 60
+    audio_max_size_bytes: int = 5 * 1024 * 1024
+    audio_probe_timeout_seconds: float = 10
+    ffprobe_binary: str = "ffprobe"
 
     bailian_api_key: str = ""
     bailian_asr_url: str = (
@@ -22,6 +29,8 @@ class Settings(BaseSettings):
         "compatible-mode/v1/chat/completions"
     )
     bailian_asr_model: str = "qwen3-asr-flash"
+    bailian_asr_timeout_seconds: float = 30
+    asr_max_base64_bytes: int = 10 * 1024 * 1024
     bailian_tts_url: str = (
         "https://dashscope.aliyuncs.com/api/v1/services/"
         "aigc/multimodal-generation/generation"
@@ -32,6 +41,7 @@ class Settings(BaseSettings):
     deepseek_api_key: str = ""
     deepseek_chat_url: str = "https://api.deepseek.com/chat/completions"
     deepseek_model: str = "deepseek-v4-flash"
+    deepseek_extract_timeout_seconds: float = 30
 
     amap_api_key: str = ""
     amap_geocode_url: str = "https://restapi.amap.com/v3/geocode/geo"
