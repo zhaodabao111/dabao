@@ -1,0 +1,27 @@
+.DS_Store
+
+# Local configuration and secrets
+.env
+backend/.env
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+
+# Runtime storage: retain folders, ignore generated content
+backend/storage/recordings/*
+!backend/storage/recordings/.gitkeep
+backend/storage/searches/*
+!backend/storage/searches/.gitkeep
+backend/storage/speech/*
+!backend/storage/speech/.gitkeep
